@@ -13,6 +13,7 @@ public class Dealership {
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.inventory = new ArrayList<Vehicle>();
     }
 
     public String getName() {
@@ -40,35 +41,41 @@ public class Dealership {
     }
 
     public List<Vehicle> getVehiclesByPrice() {
-
+        return null;
     }
 
     public List<Vehicle> getVehiclesByMakeModel() {
+        return null;
 
     }
 
     public List<Vehicle> getVehiclesByYear() {
+        return null;
 
     }
 
     public List<Vehicle> getVehiclesByColor() {
+        return null;
 
     }
 
     public List<Vehicle> getVehiclesByMileage() {
+        return null;
 
     }
 
     public List<Vehicle> getVehiclesByType() {
+        return null;
 
     }
 
     public List<Vehicle> getAllVehicles() {
+        return inventory;
 
     }
 
     public void addVehicle(Vehicle vehicle) {
-
+        inventory.add(vehicle);
     }
 
     public void removeVehicle(Vehicle vehicle) {
