@@ -1,7 +1,7 @@
 package com.pluralsight;
 
 public class UserInterface {
-    Dealership dealership = new Dealership();
+    Dealership dealership = new Dealership(name, address, phone);
 
     public void UserInterface() {
 
