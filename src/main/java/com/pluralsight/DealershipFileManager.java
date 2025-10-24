@@ -3,11 +3,10 @@ package com.pluralsight;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class DealershipFileManager {
+
     /*
     Line,Field 1,Field 2,Field 3,Field 4,Field 5,Field 6,Field 7,Field 8
     Line 1,Name,Address,Phone
@@ -27,7 +26,7 @@ public class DealershipFileManager {
                 // Splits the line using the pipe character '|' as a delimiter.
                 String[] parts = line.split(Pattern.quote("|"));
                 //line 1 is Dealership information
-                if(lineNumber == 0) {
+                if (lineNumber == 0) {
                     // Set Data
                     String name = (parts[0]);
                     String address = (parts[1]);
@@ -35,7 +34,7 @@ public class DealershipFileManager {
 
                     // Create Object
                     dealership = new Dealership(name, address, phone);
-                } else if (dealership != null) {
+                } else if (dealership != null) { //need to guarantee the dealership variable is created
                     int vin = Integer.parseInt(parts[0]);
                     int year = Integer.parseInt(parts[1]);
                     String make = parts[2];
@@ -46,8 +45,9 @@ public class DealershipFileManager {
                     double price = Double.parseDouble(parts[7]);
 
                     Vehicle vehicle = new Vehicle(vin, year, make, model, vehicleType, color, mileage, price);
+                    dealership.addVehicle(vehicle);
                 }
-
+                lineNumber++;
             }
             bufferedReader.close(); // Close the reader (essential step).
         } catch (IOException e) {
@@ -55,9 +55,9 @@ public class DealershipFileManager {
         }
         return dealership;// Returns the list of all transactions loaded from the file.
     }
+
+    public void saveDealership(Dealership dealership) {
+
+    }
 }
 
-public void saveDealership(Dealership dealership) {
-
-}
-}
